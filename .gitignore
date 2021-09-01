@@ -1,0 +1,7 @@
+# .NET output
+bin
+obj
+.vs
+.vscode
+*.user
+Math.dll
