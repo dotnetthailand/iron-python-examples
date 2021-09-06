@@ -1,5 +1,7 @@
 # How to run the project locally
-- This works on Windows only and I can't get compiled Python DLL to target .NET 5.
+- This works on Windows only and I can't get compiled Python DLL to target .NET 5 
+  due to [the reason in this GitHub issue](https://github.com/IronLanguages/ironpython3/issues/1291)
+
 
 ## Prerequisite
 - Installed Visual Studio 2019
@@ -17,16 +19,14 @@ git clone git@github.com:dotnetthailand/iron-python-examples.git
 cd iron-python-examples
 ```
 - Double click `IronPythonExamples.sln` to open the project with Visual Studio.
-- If you are using Linux, open `IronPythonExamples.csproj`, change `copy /Y Math.dll $(OutDir)` command to `cp Math.dll $(OutDir)` and save it.
-
-The current project file/folder structure.
-```
-iron-python-examples/
-├── IronPythonClassLibraryTest.cs (the main test class)
-├── IronPythonExamples.csproj
-├── IronPythonExamples.sln
-├── Math.py (Python code which will be compiled to Math.dll by ipyc.exe)
-```
+- The current project file/folder structure.
+  ```
+  iron-python-examples/
+  ├── IronPythonClassLibraryTest.cs (the main test class)
+  ├── IronPythonExamples.csproj
+  ├── IronPythonExamples.sln
+  ├── Math.py (Python code which will be compiled to Math.dll by ipyc.exe)
+  ```
 
 ## Build the project and run unit test
 - In the Solution Explorer window, select project `IronPythonExamples` node.
