@@ -38,7 +38,8 @@ cd iron-python-examples
 
 ![](images/testing-result.png)
 
-
 # Useful resource
 - https://www.py4u.net/discuss/736777
 - https://www.codemag.com/Article/2009101/Interactive-Unit-Testing-with-.NET-Core-and-VS-Code
+- [How to Register and Unregister a DLL or ActiveX Controls Using Regsvr32.exe](https://www.c-sharpcorner.com/UploadFile/8911c4/how-to-register-and-unregister-a-dll-or-activex-controls-usi/)
+- [How C# new dynamic type can simplify access to late bound COM object](https://www.c-sharpcorner.com/uploadfile/3b799a/how-C-Sharp-new-dynamic-type-can-simplify-access-to-late-bound-com-object/)
