@@ -1,37 +1,41 @@
 ﻿using System;
-using System.IO;
-using System.Reflection;
-using IronPython.Hosting;
 using Xunit;
 
 namespace IronPythonExamples
 {
-    public class IronPythonClassLibraryTest
+    public class IronPythonClassLibraryTest : IClassFixture<IronPythonClassLibraryFixture>
     {
+        private readonly IronPythonClassLibraryFixture fixture;
+        public IronPythonClassLibraryTest(IronPythonClassLibraryFixture fixture) => this.fixture = fixture;
+
         // https://www.py4u.net/discuss/736777
         [Fact]
         public void Sum_ValidInput_ReturnCorectValue()
         {
-            var pyEngine = Python.CreateEngine();
-            // Add IronPyhon library path if your IronPython dll includes Python standard module, e.g. os
-            // pyEngine.SetSearchPaths(new[] { @"C:\Program Files\IronPython 3.4\Lib" });
-
-            var assembly = Assembly.LoadFile(Path.GetFullPath("Math.dll"));
-            pyEngine.Runtime.LoadAssembly(assembly);
-            var mathModule = pyEngine.Runtime.ImportModule("Math");
-
             // Call Python function
-            var functionResult = pyEngine.Operations.Invoke(mathModule.GetVariable("sum_function"), 1, 2);
+            var functionResult = fixture.PythonEngine.Operations.Invoke(fixture.PythonModule.GetVariable("sum_function"), 1, 2);
 
             // Get the Python class
-            var mathClass = pyEngine.Operations.Invoke(mathModule.GetVariable("Math"));
+            var mathClass = fixture.PythonEngine.Operations.Invoke(fixture.PythonModule.GetVariable("Math"));
             // Create a callable function to 'sum'
-            var sumMethod = pyEngine.Operations.GetMember<Func<int, int, int>>(mathClass, "sum_method");
+            var sumMethod = fixture.PythonEngine.Operations.GetMember<Func<int, int, int>>(mathClass, "sum_method");
             // Call python method
             var methodResult = sumMethod(1, 2);
 
             Assert.Equal(3, functionResult);
             Assert.Equal(3, methodResult);
+        }
+
+        [Fact]
+        public void StringMultiply_5Times_ReturnMessage5Times()
+        {
+            // Call Python function
+            var functionResult = fixture.PythonEngine.Operations.Invoke(
+                fixture.PythonModule.GetVariable("string_multiply"),
+                "Sorry \n",
+                5
+            );
+            Assert.Equal("Sorry \nSorry \nSorry \nSorry \nSorry \n", functionResult);
         }
     }
 }
