@@ -6,6 +6,20 @@ namespace IronPythonExamples
 {
     // Before running these test cases, we need to register ttranslite.dll with the following command:
     // ps> & "$($Env:SystemRoot)\SysWoW64\regsvr32.exe" ttranslite.dll
+
+    /*
+    Currently, you cannot register COM objects in an App Service (Web jobs, Web App, API App).
+    This is because Azure Web apps does not provide us a way to access the virtual machine which hosts your web job.
+    All Azure Web Apps (as well as Mobile App/Services, WebJobs, and Functions) run in a secure environment called a sandbox.
+    Each app runs inside its own sandbox, isolating its execution from other instances on the same machine as well as providing an additional degree of security
+    and privacy that would otherwise not be available.
+    The sandbox mechanism aims to ensure that each app running on a machine will have a minimum guaranteed level of service;
+    furthermore, the runtime limits enforced by the sandbox protects apps from being adversely affected by other resource-intensive apps
+    which may be running on the same machine
+    Possible solutions would be to use Windows Containers in App Service or use virtual machine
+    which would give you full control of the machine and allow you to install whatever you want. Please read this related SO thread for more context.
+    */
+
     public class ComInteropTest : IClassFixture<ComInteropFixture>
     {
         private readonly ComInteropFixture fixture;
