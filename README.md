@@ -38,6 +38,12 @@ cd iron-python-examples
 
 ![](images/testing-result.png)
 
+
+# Useful tools for COM
+- OleViewDotNet, search by ProgId "ThaiTranslite"
+- C:\Program Files (x86)\Windows Kits\10\bin\10.0.19041.0\x86\oleview.exe after you have installed "development with C++" from Visual Studio Installer.
+- RegDllView
+
 # Useful resource
 - https://www.py4u.net/discuss/736777
 - https://www.codemag.com/Article/2009101/Interactive-Unit-Testing-with-.NET-Core-and-VS-Code
