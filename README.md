@@ -50,3 +50,5 @@ cd iron-python-examples
 - [How to Register and Unregister a DLL or ActiveX Controls Using Regsvr32.exe](https://www.c-sharpcorner.com/UploadFile/8911c4/how-to-register-and-unregister-a-dll-or-activex-controls-usi/)
 - [How C# new dynamic type can simplify access to late bound COM object](https://www.c-sharpcorner.com/uploadfile/3b799a/how-C-Sharp-new-dynamic-type-can-simplify-access-to-late-bound-com-object/)
 - https://adamtheautomator.com/regsvr32-exe/
+- [C# interop with C/C++ and Rust in WebAssembly](https://platform.uno/blog/c-interop-with-c-c-and-rust-in-webassembly/)
+
