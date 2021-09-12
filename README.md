@@ -1,5 +1,5 @@
 # How to run the project locally
-- This works on Windows only and I can't get compiled Python DLL to target .NET 5 
+- This works on Windows only and I can't get compiled Python DLL to target .NET 5
   due to [the reason in this GitHub issue](https://github.com/IronLanguages/ironpython3/issues/1291)
 
 
@@ -34,15 +34,15 @@ cd iron-python-examples
 - Open `IronPythonClassLibraryTest.cs`, and click somewhere inside `Sum_ValidInput_ReturnCorectValue` test case.
 - Press `Ctrl+R, T` to run the test case.
 - The Test Explorer window will be automaticall opened and it will show a status of the running test case.
-- You should find a succeful test result as the screenshot below.
+- You should find a successful test result as the screenshot below.
 
 ![](images/testing-result.png)
-
 
 # Useful tools for COM
 - OleViewDotNet, search by ProgId "ThaiTranslite"
 - C:\Program Files (x86)\Windows Kits\10\bin\10.0.19041.0\x86\oleview.exe after you have installed "development with C++" from Visual Studio Installer.
 - RegDllView
+- RegistryFinder
 
 # Useful resource
 - https://www.py4u.net/discuss/736777
