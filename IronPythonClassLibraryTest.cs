@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using System.Text;
 using Xunit;
 
 namespace IronPythonExamples
@@ -27,7 +29,7 @@ namespace IronPythonExamples
         }
 
         [Fact]
-        public void StringMultiply_5Times_ReturnMessage5Times()
+        public void StringMultiply_MultiplyBy5_ReturnRepeatMessages5Times()
         {
             // Call Python function
             var functionResult = fixture.PythonEngine.Operations.Invoke(
@@ -36,6 +38,38 @@ namespace IronPythonExamples
                 5
             );
             Assert.Equal("Sorry \nSorry \nSorry \nSorry \nSorry \n", functionResult);
+        }
+
+        [Fact]
+        public void StringMultiplyWithOperatorOverloading_MultiplyBy5_ReturnRepeatMessages5Times()
+        {
+            var repeatMessage = new StringWrapper("Sorry \n") * 5;
+            Assert.Equal("Sorry \nSorry \nSorry \nSorry \nSorry \n", repeatMessage);
+        }
+
+        public class StringWrapper
+        {
+            public string Value { get; }
+            public int Length { get; }
+
+            public StringWrapper(string value)
+            {
+                Value = value;
+                Length = value.Length;
+            }
+
+            public static string operator *(StringWrapper text, int multiplier)
+            {
+                return Enumerable.Range(1, multiplier).Aggregate(
+                     new StringBuilder(multiplier * text.Length),
+                     (sb, _) => sb.Append(text.Value),
+                     sb => sb.ToString()
+                 );
+
+                // String.Concat(Enumerable.Repeat("Hello", 4))
+                // If only on character
+                // string TenAs = new string ('A', multipler);
+            }
         }
     }
 }
