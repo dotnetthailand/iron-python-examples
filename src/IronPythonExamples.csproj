@@ -65,9 +65,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="images\" />
-  </ItemGroup>
 
   <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
     <Exec Command="ipyc /target:dll Math.py&#xD;&#xA;xcopy /y /f Math.dll $(OutDir)" />

@@ -3,7 +3,7 @@ using System.Reflection;
 
 namespace IronPythonExamples
 {
-    public class ComInteropFixture
+    public class Thai2RomComInteropFixture
     {
         private const string progId = "ThaiTranslite";
         private readonly string workingDirectory = AppContext.BaseDirectory;
@@ -11,7 +11,7 @@ namespace IronPythonExamples
         public object NormalLateBindingTtranslite { get; private set; }
         public dynamic DynamicLateBindingTtranslite { get; private set; }
 
-        public ComInteropFixture()
+        public Thai2RomComInteropFixture()
         {
             // From visual basic
             // NormalLateBindingTtranslite = RuntimeHelpers.GetObjectValue(Interaction.CreateObject("ThaiTranslite"));
